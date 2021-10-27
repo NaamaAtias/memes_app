@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+}
+
+.main-layout {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    justify-content: center;
+}
+
+.grid-item {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+
+
+
+/* @media (max-width: 1000px) {
+    body {
+        padding: 0 15px;
+    }
+    .main-layout {
+      max-width: 900px;
+    }
+} */
