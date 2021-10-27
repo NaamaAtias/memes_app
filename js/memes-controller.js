@@ -14,8 +14,16 @@ function goToEditor(imgId) {
     document.querySelector('.editor-page').hidden = false;
     document.querySelector('.gallery-page').hidden = true; 
     renderEditorPage(imgId);
+    onImgClicked(imgId);
 }
 function goToGallery() {
     document.querySelector('.editor-page').hidden = true;
     document.querySelector('.gallery-page').hidden = false;
+}
+
+function onEditColor() {
+var color = document.querySelector('.color-input').value;
+gMeme.lines[0].color = color;
+console.log(gMeme.lines[0].color)
+renderCanvas(color,5);
 }

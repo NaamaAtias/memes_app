@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+/* fonts */
+
+/* @font-face {
+    font-family: 'IMPACT-1';
+    src:url(/fonts/unicode.impact.ttf);
+} */
+
 body {
     margin:0;
 }
@@ -19,6 +26,12 @@ body {
 img {
     max-width: 100%;
     object-fit: cover;
+}
+
+button {
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
 }
 
 
@@ -75,22 +88,33 @@ img {
 
 /* editor-page */
 
-.grid-editor {
-    height: 80vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+.editor-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
     gap: 10px;
     position: fixed;
-    top: 60%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%,-50%);
+    background-color: lightgray;
+    border: 7px rgba(13, 45, 51, 0.842) double;
+    flex-basis: 100%;
 
 
 }
 .canvas {
     background-color: rgb(70, 102, 91);
-    
+    flex-basis: 50%;  
+}
+
+.editor {
+    flex-basis: 50%;
+}
+
+.color-input {
+    width: 30px;
+    height: 30px;
 }
 
 /* footer */
@@ -108,11 +132,19 @@ img {
 }
 
 
-/* @media (max-width: 1000px) {
-    body {
+@media (max-width: 600px) {
+    /* body {
         padding: 0 15px;
     }
     .main-layout {
       max-width: 900px;
+    } */
+
+    .editor-container {
+        flex-direction: column;
     }
-} */
+
+    .canvas {
+        max-width: 100%;  
+    }
+}

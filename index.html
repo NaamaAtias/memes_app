@@ -33,14 +33,19 @@
 
     <!-- editor page -->
     <div class="editor-page main-layout" hidden>
-        <div class="grid-editor">
-            <canvas class="canvas grid-item-1" width="450" height="450"></canvas>
-            <div class="editor grid-item-2">
-                <input type="text" class="add-text" placeholder="add-text">
+        <div class="editor-container">
+            <canvas class="canvas" width="450" height="450"></canvas>
+            <div class="editor">
+                <input type="text" class="add-text" placeholder="text-input">
                 <div class="edit-btns">
-                    <button>+</button>
-                    <button>-</button>
-                    <input type="color" class="edit-color">
+                    <button class="bigger-text">
+                        <img src="img/btns/plus-square.svg">
+                    </button>
+                    <button class="smaller-text">
+                        <img src="img/btns/minus-square.svg">
+                    </button>
+
+                    <input type="color" class="color-input" onchange="onEditColor()">
                     <button></button>
                 </div>
             </div>

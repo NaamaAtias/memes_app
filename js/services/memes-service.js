@@ -30,6 +30,6 @@ var gMeme = {
     ]
 }
 
-function onImgClicked(img) {
-    gMeme
+function onImgClicked(imgId) {
+    gMeme.selectedImgId = imgId;
 }
