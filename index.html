@@ -12,9 +12,9 @@
 <body onload="init()">
     <!-- main header -->
     <header class="main-header">
-        <div class="logo">logo header</div>
+        <div class="logo"></div>
         <nav class="main-nav">
-            <a class="gallery">Gallery</a>
+            <a onclick="goToGallery()" class="gallery">Gallery</a>
             <a class="saved-memes">Your Memes</a>
             <a class="about">About</a>
         </nav>
@@ -32,7 +32,7 @@
     </div>
 
     <!-- editor page -->
-    <div class="editor-page" hidden>
+    <div class="editor-page" >
         <canvas class="canvas" width="" height=""></canvas>
         <div class="editor">
             <input type="text" class="add-text" placeholder="add-text">
@@ -47,7 +47,9 @@
 
 
     <!-- main footer -->
-    <footer class="main-footer">logo footer</footer>
+    <footer class="main-footer">
+        <div class="logo"></div>
+    </footer>
     
     <script src="js/services/memes-service.js"></script>
     <script src="js/main.js"></script>

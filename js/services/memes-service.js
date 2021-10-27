@@ -21,10 +21,19 @@ function renderImgs() {
     // getImgs()
     let strHtml = '';
     gImgs.forEach(currImg => {
-        strHtml += `<img class="grid-item" src=${currImg.url}>`
+        strHtml += `<a onclick="goToEditor()"><img class="grid-item" src=${currImg.url}></a>`
     })
     console.log(strHtml);
     document.querySelector('.grid-gallery').innerHTML = strHtml;
+}
+
+function goToEditor() {
+    document.querySelector('.editor-page').hidden = false;
+    document.querySelector('.gallery-page').hidden = true;
+}
+function goToGallery() {
+    document.querySelector('.editor-page').hidden = true;
+    document.querySelector('.gallery-page').hidden = false;
 }
 
 
