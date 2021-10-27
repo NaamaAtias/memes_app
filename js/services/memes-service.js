@@ -17,35 +17,19 @@ function createImg() {
 }
 
 
-function renderImgs() {
-    // getImgs()
-    let strHtml = '';
-    gImgs.forEach(currImg => {
-        strHtml += `<a onclick="goToEditor()"><img class="grid-item" src=${currImg.url}></a>`
-    })
-    console.log(strHtml);
-    document.querySelector('.grid-gallery').innerHTML = strHtml;
-}
-
-function goToEditor() {
-    document.querySelector('.editor-page').hidden = false;
-    document.querySelector('.gallery-page').hidden = true;
-}
-function goToGallery() {
-    document.querySelector('.editor-page').hidden = true;
-    document.querySelector('.gallery-page').hidden = false;
-}
-
-
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I never eat Falafel',
+            txt: 'Enter your text',
             size: 20,
             align: 'left',
             color: 'red'
         }
     ]
+}
+
+function onImgClicked(img) {
+    gMeme
 }

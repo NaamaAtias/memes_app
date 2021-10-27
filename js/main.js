@@ -3,6 +3,4 @@
 function init() {
     createImgs();
     renderImgs();
-    renderGalleryPage();
-    renderEditorPage();
 }

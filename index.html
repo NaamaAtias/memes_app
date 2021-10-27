@@ -32,15 +32,17 @@
     </div>
 
     <!-- editor page -->
-    <div class="editor-page" >
-        <canvas class="canvas" width="" height=""></canvas>
-        <div class="editor">
-            <input type="text" class="add-text" placeholder="add-text">
-            <div class="edit-btns">
-                <button>+</button>
-                <button>-</button>
-                <input type="color" class="edit-color">
-                <button></button>
+    <div class="editor-page main-layout" hidden>
+        <div class="grid-editor">
+            <canvas class="canvas grid-item-1" width="450" height="450"></canvas>
+            <div class="editor grid-item-2">
+                <input type="text" class="add-text" placeholder="add-text">
+                <div class="edit-btns">
+                    <button>+</button>
+                    <button>-</button>
+                    <input type="color" class="edit-color">
+                    <button></button>
+                </div>
             </div>
         </div>
     </div>
@@ -50,8 +52,10 @@
     <footer class="main-footer">
         <div class="logo"></div>
     </footer>
-    
+
     <script src="js/services/memes-service.js"></script>
+    <script src="js/memes-controller.js"></script>
+    <script src="js/canvas-controller.js"></script>
     <script src="js/main.js"></script>
 </body>
 

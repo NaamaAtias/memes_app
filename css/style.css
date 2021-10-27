@@ -13,19 +13,6 @@ body {
     margin-right: auto;
 }
 
-.grid-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px;
-    justify-content: center;
-    margin: 30px 0;
-}
-
-/* .grid-item {
-    /* max-height: 200px; */
-    /* object-fit: cover; */
-
 
 /* basic */
 
@@ -34,9 +21,6 @@ img {
     object-fit: cover;
 }
 
-a {
-    cursor: pointer;
-}
 
 /* header */
 
@@ -69,9 +53,47 @@ a {
     letter-spacing: 0.1em;
     text-align: center;
     margin-right: 5em;
+    cursor: pointer;
 
 }
 
+/* gallery-page */
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.grid-gallery img {
+    cursor: pointer;
+}
+
+
+/* editor-page */
+
+.grid-editor {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    position: fixed;
+    top: 60%;
+    left:50%;
+    transform: translate(-50%,-50%);
+
+
+}
+.canvas {
+    background-color: rgb(70, 102, 91);
+    
+}
+
+/* footer */
 .main-footer {
     display: flex;
     flex-direction: row;
