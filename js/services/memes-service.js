@@ -1,6 +1,5 @@
 'use strict'
 
-// var gKeywords = {'happy': 12,'funny puk': 1}
 var imgId = 0;
 var gImgs=[];
 

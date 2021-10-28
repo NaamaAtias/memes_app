@@ -13,13 +13,11 @@ function renderCanvas(meme) {
     let currImg = gImgs.find(img => meme.selectedImgId === img.id);
     var img = new Image();
     img.src = currImg.url;
-    console.log(img.src);
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
         let lines = meme.lines;
         lines.forEach(line => {
             drawRect(line.pos.y, line.size);
-            console.log(line);
             drawText(line.txt, line.pos.x, line.pos.y, line.color, line.size, line.font, line.align);
         })
     }
@@ -38,9 +36,6 @@ function drawText(text, x, y, color, size, font, align) {
     gCtx.fillStyle = color;
     gCtx.font = size + 'px ' + font;
     gCtx.textAlign = align;
-    // if (align === 'center') x=gElCanvas.width/2;
-    // else if (align === 'left') x=0;
-    // else if (align === 'right') x=gElCanvas.width;
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
 }

@@ -6,7 +6,6 @@ function renderImgs() {
     imgs.forEach(currImg => {
         strHtml += `<img class="grid-item" src=${currImg.url} onclick="goToEditor(${currImg.id})">`
     })
-    console.log(strHtml);
     document.querySelector('.grid-gallery').innerHTML = strHtml;
 }
 
