@@ -110,12 +110,34 @@ button {
 
 .editor {
     flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-input {
+    width:90%;
+    height:10%;
+    margin-top:10px;
+}
+
+.edit-btns {
+    width:90%;
+    height:10%;
+    margin-top:10px;
+    line-height: 2rem;
 }
 
 .color-input {
-    width: 30px;
-    height: 30px;
+    width: 2rem;
 }
+
+.back-btn {
+    border:rgb(70, 102, 91) solid 2px;
+    border-radius: 3em;
+    background-color: rgb(108, 129, 122);
+}
+
+
 
 /* footer */
 .main-footer {

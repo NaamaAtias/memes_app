@@ -1,9 +1,9 @@
 'use strict'
 
 function renderImgs() {
-    // getImgs()
+    const imgs = getImgs();
     let strHtml = '';
-    gImgs.forEach(currImg => {
+    imgs.forEach(currImg => {
         strHtml += `<img class="grid-item" src=${currImg.url} onclick="goToEditor(${currImg.id})">`
     })
     console.log(strHtml);
@@ -12,7 +12,7 @@ function renderImgs() {
 
 function goToEditor(imgId) {
     document.querySelector('.editor-page').hidden = false;
-    document.querySelector('.gallery-page').hidden = true; 
+    document.querySelector('.gallery-page').hidden = true;
     renderEditorPage(imgId);
     onImgClicked(imgId);
 }
@@ -22,8 +22,35 @@ function goToGallery() {
 }
 
 function onEditColor() {
-var color = document.querySelector('.color-input').value;
-gMeme.lines[0].color = color;
-console.log(gMeme.lines[0].color)
-renderCanvas(color,5);
+    var color = document.querySelector('.color-input').value;
+    updateColor(color);
+}
+
+function onEditText() {
+    var txt = document.querySelector('.text-input').value;
+    updateTxt(txt);
+}
+
+function onBiggerSize() {
+    var diff = 5;
+    updateTxtSize(diff)
+}
+
+function onSmallerSize() {
+    var diff = -5;
+    updateTxtSize(diff)
+}
+
+function onMoveTxtUp() {
+    var diff = -5;
+    updateTxtPos(diff);
+}
+
+function onMoveTxtDown() {
+    var diff = 5;
+    updateTxtPos(diff);
+}
+
+function onAlignRight() {
+    
 }
