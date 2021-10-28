@@ -39,28 +39,36 @@
                 <input type="text" class="text-input  line-1" placeholder="add-text" oninput="onEditText(1)" onclick="onChangedLine(1)">
                 <div class="edit-btns">
                     <button class="bigger-text" onclick="onBiggerSize()">
-                        <img src="img/btns/plus-square.svg">
+                        <img src="img/ICONS/increase font - icon.png">
                     </button>
                     <button class="smaller-text" onclick="onSmallerSize()">
-                        <img src="img/btns/minus-square.svg">
+                        <img src="img/ICONS/decrease font - icon.png">
                     </button>
                     <button class="move-up-btn" onclick="onMoveTxtUp()">↑</button>
                     <button class="move-up-btn" onclick="onMoveTxtDown()">↓</button>
-                    <button class="move-up-btn" onclick="onAlignRight()">Right</button>
-                    <button class="move-up-btn" onclick="onAlignCenter()">Center</button>
-                    <button class="move-up-btn" onclick="onAlignLeft()">Left</button>
-
+                    <button class="move-up-btn" onclick="onAlignLeft()">
+                        <img src="img/ICONS/align-to-left.png">
+                    </button>
+                    <button class="move-up-btn" onclick="onAlignCenter()">
+                        <img src="img/ICONS/center-text-alignment.png">
+                    </button>
+                    <button class="move-up-btn" onclick="onAlignRight()">
+                        <img src="img/ICONS/align-to-right.png">
+                    </button>
                     <input type="color" class="color-input" oninput="onEditColor()">
-                    <button class="toggle-btn" onclick="onToggleLines()">↹</button>
+                    <button class="toggle-btn" onclick="onToggleLines()">
+                        <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
+                    </button>
                     <select class="font" onchange="onChangeFont()">
                         <option class="font-option" value="Impact">Impact</option>
                         <option class="font-option" value="Arial">Arial</option>
                         <option class="font-option" value="Courier">Courier</option>
                     </select>
                     <!-- <button onclick="clearTxts()">Clear</button> -->
-                    <br>
-                    <a href="#" onclick="downloadCanvas(this)" download="myMeme">Download</a>
-                    <button class="btn" onclick="uploadImg()">Share your Meme!</button>
+                </div>
+                <div class="share-back-btns">
+                    <button class="share-btn"><a href="#" onclick="downloadCanvas(this)" download="myMeme">Download</a></button>
+                    <button class="share-btn" onclick="uploadImg()">Share your Meme!</button>
                     <p class="user-msg"></p>
                     <div class="share-container"></div>
                     <button class="back-btn" onclick="goToGallery()">Back to Gallery</button>

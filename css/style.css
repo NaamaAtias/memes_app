@@ -4,10 +4,14 @@
 
 /* fonts */
 
-/* @font-face {
-    font-family: 'IMPACT-1';
-    src:url(/fonts/unicode.impact.ttf);
-} */
+@font-face {
+    font-family: Montserrat-Regular;
+    src:url(/fonts/Montserrat/Montserrat-Regular.ttf)
+}
+
+html {
+    font-family: Montserrat-Regular, sans-serif;
+}
 
 body {
     margin:0;
@@ -15,11 +19,10 @@ body {
 
 /* layout */
 .main-layout {
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
 }
-
 
 /* basic */
 
@@ -28,10 +31,23 @@ img {
     object-fit: cover;
 }
 
-button {
-    background-color: transparent;
+a {
+    text-decoration: none;
+    color: white;
+    font-family: Montserrat-Regular;
+
+}
+
+.share-btn {
+    background-color: #FF7F00;
+    color: white;
     border-color: transparent;
     cursor: pointer;
+    height: 3.75rem;
+    border-radius: 1em;
+    font-family: Montserrat-Regular;
+    margin-top:1em;
+
 }
 
 
@@ -39,21 +55,19 @@ button {
 
 .main-header {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-
-    background-color: #363047;
-    color: #FFFFFF;
-    line-height: 5em;
-    width: 100%;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    background-color: #FF7F00;
+    max-width: 100%;
 }
 
 /* main nav */
 
 .logo {
-    background-image: url(../img/LOGO/LOGO.png);
-    width: 100px;
-    height: 5em;
+    background-image: url(../img/LOGO/logo1.png);
+    width: 133px;
+    height: 3.5em;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -61,12 +75,19 @@ button {
     margin-left: 15px;
 }
 
+.main-nav {
+    /* justify-content: center;
+    align-content: center; */
+
+}
 .main-nav a {
     color: white;
     letter-spacing: 0.1em;
     text-align: center;
-    margin-right: 5em;
+    margin-right: 1em;
     cursor: pointer;
+    font-size: 1.1875rem;
+
 
 }
 
@@ -89,7 +110,8 @@ button {
 /* editor-page */
 
 .editor-container {
-    width: 90%;
+    max-height: 70%;
+    max-width: 90%;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -98,13 +120,13 @@ button {
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: lightgray;
-    border: 7px rgba(13, 45, 51, 0.842) double;
+    border: 7px #FF7F00 double;
     flex-basis: 100%;
 
 
 }
 .canvas {
-    background-color: rgb(70, 102, 91);
+    background-color: #FF7F00;
     flex-basis: 50%;  
 }
 
@@ -112,29 +134,48 @@ button {
     flex-basis: 50%;
     display: flex;
     flex-direction: column;
+    max-width: 100%;
 }
 
 .text-input {
     width:90%;
     height:10%;
     margin-top:10px;
+    max-width: 100%;
 }
 
 .edit-btns {
-    width:90%;
-    height:10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    
     margin-top:10px;
-    line-height: 2rem;
+    max-width: 100%;
+}
+
+.edit-btns button {
+    max-width:3em;
 }
 
 .color-input {
     width: 2rem;
 }
 
+.user-msg .share-container {
+    max-width: 100%;
+    flex-wrap: wrap;
+    font-size: 1rem;
+}
+
 .back-btn {
-    border:rgb(70, 102, 91) solid 2px;
-    border-radius: 3em;
-    background-color: rgb(108, 129, 122);
+    border:transparent;
+    border-radius: 1em;
+    line-height: 2rem;
+    background-color: #FF7F00;
+    color: white;
+    cursor: pointer;
+    margin-top: 2em;
 }
 
 
@@ -147,7 +188,7 @@ button {
     flex-direction: row;
     justify-content: center;
 
-    background-color: #363047;
+    background-color: #FF7F00;
     color: #FFFFFF;
     width: 100%;
 
@@ -156,19 +197,20 @@ button {
 }
 
 
+@media (max-width: 840px) {
+ 
+}
 @media (max-width: 600px) {
-    /* body {
-        padding: 0 15px;
+
+    html {
+        font-size: 14px;
     }
-    .main-layout {
-      max-width: 900px;
-    } */
 
     .editor-container {
         flex-direction: column;
     }
-
     .canvas {
         max-width: 100%;  
     }
+
 }
