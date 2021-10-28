@@ -13,7 +13,7 @@ function renderImgs() {
 function goToEditor(imgId) {
     document.querySelector('.editor-page').hidden = false;
     document.querySelector('.gallery-page').hidden = true;
-    renderEditorPage(imgId);
+    getCanvas();
     onImgClicked(imgId);
 }
 function goToGallery() {
@@ -26,9 +26,14 @@ function onEditColor() {
     updateColor(color);
 }
 
-function onEditText() {
-    var txt = document.querySelector('.text-input').value;
-    updateTxt(txt);
+function onChangedLine(idx) {
+    updateLineIdx(idx);
+}
+
+function onEditText(idx) {
+    var currLineClass = '.line-'+idx;
+    var txt = document.querySelector(currLineClass).value;
+    updateTxt(txt, idx);
 }
 
 function onBiggerSize() {
@@ -52,5 +57,14 @@ function onMoveTxtDown() {
 }
 
 function onAlignRight() {
-    
+
+}
+
+function onChangeFont() {
+    var selectedFont = document.querySelector('.font').value;
+    updateTxtFont(selectedFont);
+}
+
+function onToggleLines() {
+    toggleLines();
 }

@@ -11,17 +11,19 @@ var gMeme = {
         {
             txt: 'Enter your text',
             size: 50,
-            align: 'left',
-            color: 'red',
-            pos: {x:225, y:50}
+            align: 'center',
+            color: 'black',
+            pos: {x:225, y:50},
+            font: 'Impact'
         },
         
         {
             txt: 'Enter your text',
             size: 50,
-            align: 'left',
-            color: 'red',
-            pos: {x:225, y:50}
+            align: 'center',
+            color: 'black',
+            pos: {x:225, y:430},
+            font: 'Impact'
         }
     ]
 }
@@ -46,31 +48,45 @@ function getImgs() {
 
 function onImgClicked(imgId) {
     gMeme.selectedImgId = imgId;
-    gMeme.lines[0].color = 'black';
-    gMeme.lines[0].txt = 'Enter your text';
-    gMeme.lines[0].size = 50;
-    renderCanvas(gMeme.lines[0].color,gMeme.selectedImgId,gMeme.lines[0].txt, gMeme.lines[0].size, gMeme.lines[0].pos.x,gMeme.lines[0].pos.y);
-
+    renderCanvas(gMeme);
 }
 
 function updateColor(color) {
-    gMeme.lines[0].color = color;
-    renderCanvas(gMeme.lines[0].color,gMeme.selectedImgId,gMeme.lines[0].txt, gMeme.lines[0].size, gMeme.lines[0].pos.x,gMeme.lines[0].pos.y);
+    gMeme.lines[gMeme.selectedLineIdx].color = color;
+    renderCanvas(gMeme);
 }
 
-function updateTxt(txt) {
-gMeme.lines[0].txt = txt;
-renderCanvas(gMeme.lines[0].color,gMeme.selectedImgId,gMeme.lines[0].txt, gMeme.lines[0].size, gMeme.lines[0].pos.x,gMeme.lines[0].pos.y);
+function updateLineIdx(idx) {
+    gMeme.selectedLineIdx = idx;
+}
+
+function updateTxt(txt,idx) {
+gMeme.lines[idx].txt = txt;
+renderCanvas(gMeme);
 }
 
 function updateTxtSize(diff) {
-    gMeme.lines[0].size += diff;
-    renderCanvas(gMeme.lines[0].color,gMeme.selectedImgId,gMeme.lines[0].txt, gMeme.lines[0].size, gMeme.lines[0].pos.x,gMeme.lines[0].pos.y);
+    gMeme.lines[gMeme.selectedLineIdx].size += diff;
+    renderCanvas(gMeme);
 
 }
 function updateTxtPos(diff) {
-    gMeme.lines[0].pos.y += diff;
-    renderCanvas(gMeme.lines[0].color,gMeme.selectedImgId,gMeme.lines[0].txt, gMeme.lines[0].size, gMeme.lines[0].pos.x,gMeme.lines[0].pos.y);
+    gMeme.lines[gMeme.selectedLineIdx].pos.y += diff;
+    renderCanvas(gMeme);
+
+}
+
+function updateTxtFont(selectedFont) {
+    gMeme.lines[gMeme.selectedLineIdx].font = selectedFont;
+    renderCanvas(gMeme);
+
+}
+
+function toggleLines() {
+    let tempPos = gMeme.lines[0].pos;
+    gMeme.lines[0].pos = gMeme.lines[1].pos;
+    gMeme.lines[1].pos = tempPos;
+    renderCanvas(gMeme);
 
 }
 

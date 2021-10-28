@@ -26,7 +26,6 @@
             <!-- render search words as links -->
         </nav>
         <section class="grid-gallery">
-            <!-- <img src="img/memes-square/1.jpg"> -->
             <!-- render images as links -->
         </section>
     </div>
@@ -36,8 +35,8 @@
         <div class="editor-container">
             <canvas class="canvas" width="450" height="450"></canvas>
             <div class="editor">
-                <input type="text line-0" class="text-input" placeholder="add-text" oninput="onEditText(0)">
-                <input type="text line-1" class="text-input" placeholder="add-text" oninput="onEditText(1)">
+                <input type="text" class="text-input  line-0" placeholder="add-text" oninput="onEditText(0)" onclick="onChangedLine(0)">
+                <input type="text" class="text-input  line-1" placeholder="add-text" oninput="onEditText(1)" onclick="onChangedLine(1)">
                 <div class="edit-btns">
                     <button class="bigger-text" onclick="onBiggerSize()">
                         <img src="img/btns/plus-square.svg">
@@ -51,7 +50,14 @@
                     <button class="move-up-btn" onclick="onAlignCenter()">Center</button>
                     <button class="move-up-btn" onclick="onAlignLeft()">Left</button> -->
 
-                    <input type="color" class="color-input" oninput="onEditColor()"><br>
+                    <input type="color" class="color-input" oninput="onEditColor()">
+                    <button class="toggle-btn" onclick="onToggleLines()">↹</button>
+                    <select class="font" onchange="onChangeFont()">
+                        <option class="font-option" value="Impact">Impact</option>
+                        <option class="font-option" value="Arial">Arial</option>
+                        <option class="font-option" value="Courier">Courier</option>
+                    </select>
+                    <br>
                     <button class="back-btn" onclick="goToGallery()">Back to Gallery</button>
                 </div>
             </div>
