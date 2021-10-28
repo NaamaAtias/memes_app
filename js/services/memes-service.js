@@ -51,11 +51,6 @@ function onImgClicked(imgId) {
     renderCanvas(gMeme);
 }
 
-function updateColor(color) {
-    gMeme.lines[gMeme.selectedLineIdx].color = color;
-    renderCanvas(gMeme);
-}
-
 function updateLineIdx(idx) {
     gMeme.selectedLineIdx = idx;
 }
@@ -79,7 +74,11 @@ function updateTxtPos(diff) {
 function updateTxtFont(selectedFont) {
     gMeme.lines[gMeme.selectedLineIdx].font = selectedFont;
     renderCanvas(gMeme);
+}
 
+function updateColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].color = color;
+    renderCanvas(gMeme);
 }
 
 function toggleLines() {
@@ -88,5 +87,11 @@ function toggleLines() {
     gMeme.lines[1].pos = tempPos;
     renderCanvas(gMeme);
 
+}
+
+function updateTxtAlignment(align, x) {
+    gMeme.lines[gMeme.selectedLineIdx].align = align;
+    gMeme.lines[gMeme.selectedLineIdx].pos.x = x;
+    renderCanvas(gMeme);
 }
 

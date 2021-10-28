@@ -57,7 +57,16 @@ function onMoveTxtDown() {
 }
 
 function onAlignRight() {
-
+    const x= getCanvasWidth();
+    updateTxtAlignment('right', x);
+}
+function onAlignCenter() {
+    const x= getCanvasWidth();
+    updateTxtAlignment('center', x/2);
+}
+function onAlignLeft() {
+    const x= 0;
+    updateTxtAlignment('left', x);
 }
 
 function onChangeFont() {

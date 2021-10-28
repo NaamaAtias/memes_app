@@ -46,9 +46,9 @@
                     </button>
                     <button class="move-up-btn" onclick="onMoveTxtUp()">↑</button>
                     <button class="move-up-btn" onclick="onMoveTxtDown()">↓</button>
-                    <!-- <button class="move-up-btn" onclick="onAlignRight()">Right</button>
+                    <button class="move-up-btn" onclick="onAlignRight()">Right</button>
                     <button class="move-up-btn" onclick="onAlignCenter()">Center</button>
-                    <button class="move-up-btn" onclick="onAlignLeft()">Left</button> -->
+                    <button class="move-up-btn" onclick="onAlignLeft()">Left</button>
 
                     <input type="color" class="color-input" oninput="onEditColor()">
                     <button class="toggle-btn" onclick="onToggleLines()">↹</button>
@@ -57,7 +57,12 @@
                         <option class="font-option" value="Arial">Arial</option>
                         <option class="font-option" value="Courier">Courier</option>
                     </select>
+                    <!-- <button onclick="clearTxts()">Clear</button> -->
                     <br>
+                    <a href="#" onclick="downloadCanvas(this)" download="myMeme">Download</a>
+                    <button class="btn" onclick="uploadImg()">Share your Meme!</button>
+                    <p class="user-msg"></p>
+                    <div class="share-container"></div>
                     <button class="back-btn" onclick="goToGallery()">Back to Gallery</button>
                 </div>
             </div>
