@@ -1,10 +1,11 @@
 'use strict'
-var gElCanvas;
-var gCtx;
+
+// var gElCanvas;
+// var gCtx;
 var gStartPos;
 
 function getCanvas() {
-    gElCanvas = document.querySelector('.canvas');
+    gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
 }
 
@@ -16,8 +17,10 @@ function renderCanvas(meme) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
         let lines = meme.lines;
-        lines.forEach(line => {
+        lines.forEach((line,idx) => {
+            if (meme.selectedLineIdx === idx) {
             drawRect(line.pos.y, line.size);
+            }
             drawText(line.txt, line.pos.x, line.pos.y, line.color, line.size, line.font, line.align);
         })
     }
@@ -26,8 +29,10 @@ function renderCanvas(meme) {
 function drawRect(y, fontSize) {
     gCtx.beginPath();
     gCtx.rect(0, y-fontSize, gElCanvas.width, fontSize+10);
-    gCtx.strokeStyle = 'black';
-    gCtx.stroke();
+    gCtx.fillStyle = 'rgba(225,225,225,0.5)';
+    gCtx.fillRect(0, y-fontSize, gElCanvas.width, fontSize+10);
+    // gCtx.strokeStyle = 'white';
+    // gCtx.stroke();
 }
 
 function drawText(text, x, y, color, size, font, align) {
@@ -88,6 +93,7 @@ function doUploadImg(imgDataUrl, onSuccess) {
             console.error(err)
         })
 }
+
 
 
 

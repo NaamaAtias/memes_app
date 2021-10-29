@@ -6,22 +6,22 @@
 
 @font-face {
     font-family: Montserrat-Regular;
-    src:url(/fonts/Montserrat/Montserrat-Regular.ttf)
+    src:url(/fonts/Montserrat/Montserrat-Regular.ttf);
 }
 
 html {
-    font-family: Montserrat-Regular, sans-serif;
+    font-family: 'Montserrat-Regular', sans-serif;
 }
 
 body {
     margin:0;
 }
 
-/* layout */
+/* layout */ */
 .main-layout {
     max-width: 100%;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* basic */
@@ -90,11 +90,14 @@ a {
 
 .grid-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+    grid-template-columns: repeat(auto-fill, minmax(50px, 300px));
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     gap: 10px;
     justify-content: center;
     margin: 30px 0;
+    padding: 10px;
+    background-color: lightgray;
+
 }
 
 .grid-gallery img {
@@ -104,55 +107,89 @@ a {
 
 /* editor-page */
 
+.editor-page {
+    background-color: lightgray;
+padding: 100%;
+}
+
 .editor-container {
-    max-height: 75%;
-    max-width: 98%;
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    position: fixed;
+    gap: 20px;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background-color: lightgray;
-    border: 7px #FF7F00 double;
-    flex-basis: 100%;
-
+    width:90%;
 
 }
+
 .canvas {
     background-color: #FF7F00;
-    flex-basis: 50%;  
+    /* flex-basis: 50%;   */
 }
 
 .editor {
-    flex-basis: 50%;
+    /* flex-basis: 50%; */
     display: flex;
     flex-direction: column;
 }
 
+.editor >* {
+    justify-content: center;
+    border-color: transparent;
+    border-radius: 1em;
+}
+
 .text-input {
-    max-width:90%;
-    height:10%;
-    margin-top:10px;
+    height: 3em;
+    margin-top: 10px;
+    
 }
 
 .edit-btns {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px;
     margin-top:10px;
+
 }
 
 .edit-btns button {
-    max-width:3em;
+    width:4em;
+    border-color: transparent;
+    border-radius: 1em;
+    cursor: pointer;
+    background-color: white;
 }
 
 .color-input {
-    width: 2rem;
+    width: 4em;
+    height:4em;
+    border-color: transparent;
+    border-radius: 1em;
+    background-position: center;
+    cursor: pointer;
+    background-color: white;
+
 }
 
+.font {
+    width: 12em;
+    height:4em;
+    border-color: transparent;
+    border-radius: 1em;
+    background-color: white;
+
+}
+
+.share-back-btns {
+    text-align: end;
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+
+}
 .back-btn {
     border:transparent;
     border-radius: 1em;
@@ -167,8 +204,8 @@ a {
 /* footer */
 .main-footer {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     background-color: #FF7F00;
     color: #FFFFFF;
@@ -179,7 +216,18 @@ a {
 }
 
 
-@media (max-width: 840px) {
+@media (max-width: 740px) {
+    .grid-gallery {
+    grid-template-columns: repeat(3, minmax(80px, 300px));
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    }
+    .share-back-btns {
+        position: inherit;
+}
+
+.editor-container {
+    max-height: 75%;
+}
  
 }
 @media (max-width: 600px) {
@@ -188,11 +236,53 @@ a {
         font-size: 14px;
     }
 
+    .main-nav {
+        position:absolute;
+        right: 0%;
+        top:0%;
+        flex-direction: column;
+        height: 30vh;
+        background-color: #FF7F00;
+        display: none;
+        padding: 15px;
+    }
+
+    .btn-menu {
+        display: block;
+        background-color: transparent;
+        color: white;
+        border-color: transparent;
+        font-size: 1.1875rem;
+    }
+
+    body.menu-open .main-nav {
+        display: flex;
+    }
+
+    body.menu-open .btn-close-menu {
+        display: block;
+        position: absolute;
+        right: 5%;
+        top: 1%;
+        background-color: transparent;
+        color: white;
+        border-color: transparent;
+        font-size: 1.1875rem;
+    }
+
+    .grid-gallery {
+        grid-template-columns: repeat(2, minmax(80px, 200px));
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    }
+
     .editor-container {
         flex-direction: column;
+        max-height: 80%;
     }
     .canvas {
         max-width: 100%;  
     }
+
+
 
 }

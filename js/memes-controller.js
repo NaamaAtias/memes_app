@@ -76,3 +76,8 @@ function onChangeFont() {
 function onToggleLines() {
     toggleLines();
 }
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
+}
+

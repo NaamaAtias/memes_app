@@ -11,13 +11,15 @@
 
 <body onload="init()">
     <!-- main header -->
-    <header class="main-header">
+    <header class="main-header main-layout">
         <div class="logo"></div>
         <nav class="main-nav">
             <a onclick="goToGallery()" class="gallery">Gallery</a>
             <a class="saved-memes">Your Memes</a>
             <a class="about">About</a>
+            <button class="btn-close-menu" onclick="toggleMenu()" hidden>X</button>
         </nav>
+        <button class="btn-menu" onclick="toggleMenu()" hidden>☰</button>
     </header>
 
     <!-- gallery page -->
@@ -33,10 +35,12 @@
     <!-- editor page -->
     <div class="editor-page main-layout" hidden>
         <div class="editor-container">
-            <canvas class="canvas" width="450" height="450"></canvas>
+            <canvas class="canvas" id="canvas" width="450" height="450"></canvas>
             <div class="editor">
-                <input type="text" class="text-input  line-0" placeholder="add-text" oninput="onEditText(0)" onclick="onChangedLine(0)">
-                <input type="text" class="text-input  line-1" placeholder="add-text" oninput="onEditText(1)" onclick="onChangedLine(1)">
+                <input type="text" class="text-input  line-0" placeholder="add-text" oninput="onEditText(0)"
+                    onclick="onChangedLine(0)">
+                <input type="text" class="text-input  line-1" placeholder="add-text" oninput="onEditText(1)"
+                    onclick="onChangedLine(1)">
                 <div class="edit-btns">
                     <button class="bigger-text" onclick="onBiggerSize()">
                         <img src="img/ICONS/increase font - icon.png">
@@ -67,7 +71,8 @@
                     <!-- <button onclick="clearTxts()">Clear</button> -->
                 </div>
                 <div class="share-back-btns">
-                    <button class="share-btn"><a href="#" onclick="downloadCanvas(this)" download="myMeme">Download</a></button>
+                    <button class="share-btn"><a href="#" onclick="downloadCanvas(this)"
+                            download="myMeme">Download</a></button>
                     <button class="share-btn" onclick="uploadImg()">Share your Meme!</button>
                     <p class="user-msg"></p>
                     <div class="share-container"></div>
@@ -79,14 +84,17 @@
 
 
     <!-- main footer -->
-    <footer class="main-footer">
+    <footer class="main-footer main-layout">
         <div class="logo"></div>
+        <p>© All Rights Reserved 2021</p>
     </footer>
 
+    <script src="js/main.js"></script>
     <script src="js/services/memes-service.js"></script>
     <script src="js/memes-controller.js"></script>
     <script src="js/canvas-controller.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/drag&drop-controller.js"></script>
+
 </body>
 
 </html>

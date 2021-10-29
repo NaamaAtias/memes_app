@@ -21,7 +21,7 @@ var gMeme = {
             size: 50,
             align: 'center',
             color: 'black',
-            pos: {x:225, y:430},
+            pos: {x:225, y:440},
             font: 'Impact'
         }
     ]
@@ -45,6 +45,10 @@ function getImgs() {
     return gImgs;
 }
 
+function getMeme() {
+    return gMeme;
+}
+
 function onImgClicked(imgId) {
     gMeme.selectedImgId = imgId;
     renderCanvas(gMeme);
@@ -52,6 +56,8 @@ function onImgClicked(imgId) {
 
 function updateLineIdx(idx) {
     gMeme.selectedLineIdx = idx;
+    renderCanvas(gMeme);
+
 }
 
 function updateTxt(txt,idx) {
