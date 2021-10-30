@@ -42,15 +42,14 @@ function getEvPos(ev) {
 
 function onDown(ev) {
     const pos = getEvPos(ev);
-    console.log(pos);
-    console.log(gCurrMeme);
-    var currTxtPos = gCurrMeme.lines[selectedLineIdx].pos;
-    console.log(currTxtPos);
-    var currTxtSize = gCurrMeme.lines[selectedLineIdx].size;
-    if (pos.x <= currTxtPos.x + currTxtSize && pos.x >= currTxtPos.x) {
-        console.log(currTxtPos);
+    const lines = gCurrMeme.lines;
+    let currLineIdx = lines.findIndex(line => pos.y >= line.pos.y - line.size && pos.y <= line.pos.y);
+    onTextClicked(currLineIdx);
+    var currTxtPos = gCurrMeme.lines[gCurrMeme.selectedLineIdx].pos;
+    var currTxtSize = gCurrMeme.lines[gCurrMeme.selectedLineIdx].size;
+    if (pos.y >= currTxtPos.y - currTxtSize && pos.y <= currTxtPos.y) {
         renderCanvas(gCurrMeme);
-        gCurrMeme.lines[selectedLineIdx].pos = { x: ev.offsetX, y: ev.offsetY };
+        currTxtPos = { x: currTxtPos.x-ev.offsetX, y: ev.offsetY };
         gStartPos = pos;
         document.body.style.cursor = 'grabbing'
         isDrag = true;
@@ -63,8 +62,9 @@ function onMove(ev) {
         const dx = pos.x - gStartPos.x
         const dy = pos.y - gStartPos.y
         gStartPos = pos;
-        gCurrMeme.lines[selectedLineIdx].pos.x += dx;
-        gCurrMeme.lines[selectedLineIdx].pos.y += dy;
+        gCurrMeme.lines[gCurrMeme.selectedLineIdx].pos.x += dx;
+        gCurrMeme.lines[gCurrMeme.selectedLineIdx].pos.y += dy;
+        renderCanvas(gCurrMeme);
     }
 }
 

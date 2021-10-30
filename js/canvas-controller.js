@@ -49,6 +49,10 @@ function getCanvasWidth() {
     return gElCanvas.width;
 }
 
+function onTextClicked(idx) {
+    updateLineIdx(idx);
+}
+
 // function clearTxts() {
 // }
 
