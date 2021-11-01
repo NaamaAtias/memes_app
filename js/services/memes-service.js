@@ -1,7 +1,7 @@
 'use strict'
 
 var imgId = 0;
-var gImgs=[];
+var gImgs = [];
 
 var gMeme = {
     selectedImgId: 5,
@@ -9,20 +9,22 @@ var gMeme = {
     lines: [
         {
             txt: 'Enter your text',
-            size: 50,
+            size: 35,
             align: 'center',
             color: 'black',
-            pos: {x:225, y:50},
-            font: 'Impact'
+            pos: { x: 175, y: 35 },
+            font: 'Impact',
+            width: 292.9443359375
         },
-        
+
         {
             txt: 'Enter your text',
-            size: 50,
+            size: 35,
             align: 'center',
             color: 'black',
-            pos: {x:225, y:440},
-            font: 'Impact'
+            pos: { x: 175, y: 330 },
+            font: 'Impact',
+            width: 292.9443359375
         }
     ]
 }
@@ -60,9 +62,11 @@ function updateLineIdx(idx) {
 
 }
 
-function updateTxt(txt,idx) {
-gMeme.lines[idx].txt = txt;
-renderCanvas(gMeme);
+function updateTxt(txt, idx, width) {
+    gMeme.lines[idx].txt = txt;
+    gMeme.lines[idx].width = width;
+    renderCanvas(gMeme);
+    console.log(gMeme);
 }
 
 function updateTxtSize(diff) {
@@ -97,6 +101,11 @@ function toggleLines() {
 function updateTxtAlignment(align, x) {
     gMeme.lines[gMeme.selectedLineIdx].align = align;
     gMeme.lines[gMeme.selectedLineIdx].pos.x = x;
+    renderCanvas(gMeme);
+}
+
+function updateTxtWidth(idx, txtWidth) {
+    gMeme.lines[idx].width = txtWidth;
     renderCanvas(gMeme);
 }
 

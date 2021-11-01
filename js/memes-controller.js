@@ -10,15 +10,20 @@ function renderImgs() {
 }
 
 function goToEditor(imgId) {
-    document.querySelector('.editor-page').hidden = false;
+    document.querySelector('.editor-page').style.display = 'flex';
     document.querySelector('.gallery-page').hidden = true;
     getCanvas();
     onImgClicked(imgId);
 }
 function goToGallery() {
-    document.querySelector('.editor-page').hidden = true;
+    document.querySelector('.editor-page').style.display = 'none';
     document.querySelector('.gallery-page').hidden = false;
+    if (document.body.classList.contains('menu-open')) {
+        console.log('menu open');
+        toggleMenu();
+    }
 }
+
 
 function onEditColor() {
     var color = document.querySelector('.color-input').value;
@@ -30,9 +35,10 @@ function onChangedLine(idx) {
 }
 
 function onEditText(idx) {
-    var currLineClass = '.line-'+idx;
+    var currLineClass = '.line-' + idx;
     var txt = document.querySelector(currLineClass).value;
-    updateTxt(txt, idx);
+    let width = checkTextWidth(txt);
+    updateTxt(txt, idx,width);
 }
 
 function onBiggerSize() {
@@ -56,15 +62,15 @@ function onMoveTxtDown() {
 }
 
 function onAlignRight() {
-    const x= getCanvasWidth();
+    const x = getCanvasWidth();
     updateTxtAlignment('right', x);
 }
 function onAlignCenter() {
-    const x= getCanvasWidth();
-    updateTxtAlignment('center', x/2);
+    const x = getCanvasWidth();
+    updateTxtAlignment('center', x / 2);
 }
 function onAlignLeft() {
-    const x= 0;
+    const x = 0;
     updateTxtAlignment('left', x);
 }
 
@@ -77,7 +83,8 @@ function onToggleLines() {
     toggleLines();
 }
 
-function toggleMenu() {
-    document.body.classList.toggle('menu-open');
-}
+
+
+
+
 

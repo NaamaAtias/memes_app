@@ -14,29 +14,30 @@ function renderCanvas(meme) {
     let currImg = gImgs.find(img => meme.selectedImgId === img.id);
     var img = new Image();
     img.src = currImg.url;
+
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
         let lines = meme.lines;
         lines.forEach((line,idx) => {
             if (meme.selectedLineIdx === idx) {
-            drawRect(line.pos.y, line.size);
+            drawRect(line.pos.x, line.pos.y, line.size, line.width);
             }
             drawText(line.txt, line.pos.x, line.pos.y, line.color, line.size, line.font, line.align);
+            
         })
     }
 }
 
-function drawRect(y, fontSize) {
+function drawRect(x, y, fontSize, width) {
     gCtx.beginPath();
-    gCtx.rect(0, y-fontSize, gElCanvas.width, fontSize+10);
+    gCtx.rect(x-width/2, y-fontSize, width, fontSize+10);
     gCtx.fillStyle = 'rgba(225,225,225,0.5)';
-    gCtx.fillRect(0, y-fontSize, gElCanvas.width, fontSize+10);
-    // gCtx.strokeStyle = 'white';
-    // gCtx.stroke();
+    gCtx.fillRect(x-width/2, y-fontSize, width, fontSize+10);
+
 }
 
 function drawText(text, x, y, color, size, font, align) {
-    gCtx.lineWidth = 1;
+    // gCtx.lineWidth = 1;
     gCtx.strokeStyle = 'white';
     gCtx.fillStyle = color;
     gCtx.font = size + 'px ' + font;
@@ -45,8 +46,17 @@ function drawText(text, x, y, color, size, font, align) {
     gCtx.strokeText(text, x, y);
 }
 
+function checkTextWidth(txt) {
+    let currTxt= gCtx.measureText(txt);
+    let txtWidth = currTxt.width;
+    return txtWidth;
+}
+
 function getCanvasWidth() {
     return gElCanvas.width;
+}
+function getCanvasHeight() {
+    return gElCanvas.height;
 }
 
 function onTextClicked(idx) {
@@ -98,6 +108,15 @@ function doUploadImg(imgDataUrl, onSuccess) {
         })
 }
 
+// function resizeCanvas() {
+//     const elContainer = document.querySelector('.canvas-container')
+//     gElCanvas.width = elContainer.offsetWidth
+//     gElCanvas.height = elContainer.offsetHeight
+// }
 
+function saveToMyMemes() {
+    gMyMemes.push(gElCanvas.toDataURL())
+    saveToStorage('my-memes', gMyMemes)
+  }
 
 

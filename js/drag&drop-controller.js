@@ -6,8 +6,12 @@ var gStartPos;
 var gCurrMeme = getMeme();
 
 function addListeners() {
-    addMouseListeners()
-    addTouchListeners()
+    addMouseListeners();
+    addTouchListeners();
+    // window.addEventListener('resize', () => {
+    //     resizeCanvas();
+    //     renderCanvas(gCurrMeme);
+    // })
 }
 
 function addMouseListeners() {
@@ -42,11 +46,16 @@ function getEvPos(ev) {
 
 function onDown(ev) {
     const pos = getEvPos(ev);
+    console.log(pos)
     const lines = gCurrMeme.lines;
-    let currLineIdx = lines.findIndex(line => pos.y >= line.pos.y - line.size && pos.y <= line.pos.y);
+    // let txt = gCtx.measureText(lines[0].txt);
+    // let width = txt.width;
+    // console.log(width);
+    let currLineIdx = lines.findIndex(line => (pos.y >= line.pos.y - line.size+10) && (pos.y <= line.pos.y) && (pos.x >= line.pos.x-line.width/2) && (pos.x <= line.pos.x + line.width/2));
     onTextClicked(currLineIdx);
-    var currTxtPos = gCurrMeme.lines[gCurrMeme.selectedLineIdx].pos;
-    var currTxtSize = gCurrMeme.lines[gCurrMeme.selectedLineIdx].size;
+    var currTxtPos = gCurrMeme.lines[currLineIdx].pos;
+    console.log(currTxtPos);
+    var currTxtSize = gCurrMeme.lines[currLineIdx].size;
     if (pos.y >= currTxtPos.y - currTxtSize && pos.y <= currTxtPos.y) {
         renderCanvas(gCurrMeme);
         currTxtPos = { x: currTxtPos.x-ev.offsetX, y: ev.offsetY };
@@ -58,7 +67,7 @@ function onDown(ev) {
 
 function onMove(ev) {
     if (isDrag) {
-        const pos = { x: ev.offsetX, y: ev.offsetY };
+        const pos = getEvPos(ev);
         const dx = pos.x - gStartPos.x
         const dy = pos.y - gStartPos.y
         gStartPos = pos;

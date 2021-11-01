@@ -33,9 +33,9 @@
     </div>
 
     <!-- editor page -->
-    <div class="editor-page main-layout" hidden>
+    <div class="editor-page main-layout">
         <div class="editor-container">
-            <canvas class="canvas" id="canvas" width="450" height="450"></canvas>
+            <canvas class="canvas" width="350" height="350"></canvas>
             <div class="editor">
                 <input type="text" class="text-input  line-0" placeholder="add-text" oninput="onEditText(0)"
                     onclick="onChangedLine(0)">
@@ -60,6 +60,7 @@
                         <img src="img/ICONS/align-to-right.png">
                     </button>
                     <input type="color" class="color-input" oninput="onEditColor()">
+
                     <button class="toggle-btn" onclick="onToggleLines()">
                         <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
                     </button>
