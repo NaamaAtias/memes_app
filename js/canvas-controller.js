@@ -3,6 +3,8 @@
 // var gElCanvas;
 // var gCtx;
 var gStartPos;
+var gMyMemes = [];
+
 
 function getCanvas() {
     gElCanvas = document.querySelector('canvas');
@@ -18,21 +20,21 @@ function renderCanvas(meme) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
         let lines = meme.lines;
-        lines.forEach((line,idx) => {
+        lines.forEach((line, idx) => {
             if (meme.selectedLineIdx === idx) {
-            drawRect(line.pos.x, line.pos.y, line.size, line.width);
+                drawRect(line.pos.x, line.pos.y, line.size, line.width);
             }
             drawText(line.txt, line.pos.x, line.pos.y, line.color, line.size, line.font, line.align);
-            
+
         })
     }
 }
 
 function drawRect(x, y, fontSize, width) {
     gCtx.beginPath();
-    gCtx.rect(x-width/2, y-fontSize, width, fontSize+10);
+    gCtx.rect(x - width / 2, y - fontSize, width, fontSize + 10);
     gCtx.fillStyle = 'rgba(225,225,225,0.5)';
-    gCtx.fillRect(x-width/2, y-fontSize, width, fontSize+10);
+    gCtx.fillRect(x - width / 2, y - fontSize, width, fontSize + 10);
 
 }
 
@@ -47,7 +49,7 @@ function drawText(text, x, y, color, size, font, align) {
 }
 
 function checkTextWidth(txt) {
-    let currTxt= gCtx.measureText(txt);
+    let currTxt = gCtx.measureText(txt);
     let txtWidth = currTxt.width;
     return txtWidth;
 }
@@ -115,8 +117,17 @@ function doUploadImg(imgDataUrl, onSuccess) {
 // }
 
 function saveToMyMemes() {
-    gMyMemes.push(gElCanvas.toDataURL())
-    saveToStorage('my-memes', gMyMemes)
-  }
+    gMyMemes = loadFromStorage('my-memes');
+    gMyMemes.push(gElCanvas.toDataURL());
+    saveToStorage('my-memes', gMyMemes);
+    alert('saved!');
+}
 
+function renderMyMemes() {
+    let myMemes = loadFromStorage('my-memes');
+    let strHtmls = myMemes.map(meme => `<img src="${meme}" alt="">`);
+
+    let elMyMemes = document.querySelector('.grid-saved-memes');
+    elMyMemes.innerHTML = strHtmls.join('');
+}
 

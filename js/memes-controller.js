@@ -12,16 +12,27 @@ function renderImgs() {
 function goToEditor(imgId) {
     document.querySelector('.editor-page').style.display = 'flex';
     document.querySelector('.gallery-page').hidden = true;
+    document.querySelector('.saved-memes-page').hidden = true;
     getCanvas();
     onImgClicked(imgId);
 }
+
 function goToGallery() {
     document.querySelector('.editor-page').style.display = 'none';
     document.querySelector('.gallery-page').hidden = false;
+    document.querySelector('.saved-memes-page').hidden = true;
     if (document.body.classList.contains('menu-open')) {
         console.log('menu open');
         toggleMenu();
     }
+}
+
+function goToSavedMemes() {
+    document.querySelector('.editor-page').style.display = 'none';
+    document.querySelector('.gallery-page').hidden = true;
+    document.querySelector('.saved-memes-page').hidden = false;
+
+    renderMyMemes();
 }
 
 
@@ -38,7 +49,7 @@ function onEditText(idx) {
     var currLineClass = '.line-' + idx;
     var txt = document.querySelector(currLineClass).value;
     let width = checkTextWidth(txt);
-    updateTxt(txt, idx,width);
+    updateTxt(txt, idx, width);
 }
 
 function onBiggerSize() {
@@ -81,6 +92,11 @@ function onChangeFont() {
 
 function onToggleLines() {
     toggleLines();
+}
+
+function onSaveToMyMemes() {
+    saveToMyMemes();
+    renderMyMemes();
 }
 
 

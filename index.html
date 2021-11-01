@@ -15,7 +15,7 @@
         <div class="logo"></div>
         <nav class="main-nav">
             <a onclick="goToGallery()" class="gallery">Gallery</a>
-            <a class="saved-memes">Your Memes</a>
+            <a class="saved-memes" onclick="goToSavedMemes()">Your Memes</a>
             <a class="about">About</a>
             <button class="btn-close-menu" onclick="toggleMenu()" hidden>X</button>
         </nav>
@@ -77,12 +77,18 @@
                     <button class="share-btn" onclick="uploadImg()">Share your Meme!</button>
                     <p class="user-msg"></p>
                     <div class="share-container"></div>
-                    <button class="back-btn" onclick="goToGallery()">Back to Gallery</button>
+                    <button class="share-btn" onclick="onSaveToMyMemes()">Save your Meme!</button>
+                    <button class="share-btn"  onclick="goToGallery()">Back to Gallery</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="saved-memes-page" hidden>
+        <section class="grid-saved-memes">
+            <!-- render saved memes -->
+        </section>
+    </div>
 
     <!-- main footer -->
     <footer class="main-footer main-layout">
@@ -91,6 +97,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/services/storage-service.js"></script>
     <script src="js/services/memes-service.js"></script>
     <script src="js/memes-controller.js"></script>
     <script src="js/canvas-controller.js"></script>
